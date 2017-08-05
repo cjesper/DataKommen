@@ -1,0 +1,6 @@
+### Idé ###
+Gå in på sida
+Se fråga
+Tryck på knapp för att se nästa fråga
+Kunna svara på frågor och få det rättat (identifiera buzzwords)
+

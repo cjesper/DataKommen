@@ -1,0 +1,7 @@
+" Installing plugins to /home/jesper/.vim/bundle
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
+Plugin 'sjl/badwolf'
+Helptags
+

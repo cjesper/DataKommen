@@ -1,0 +1,19 @@
+{
+    "pid": 23783, 
+    "argv": [
+        "/home/jesper/pypy2-v5.3.1-linux64/bin/crossbar", 
+        "start"
+    ], 
+    "options": {
+        "cbdir": "/home/jesper/Programming/DataKommen/.crossbar", 
+        "config": "config.json", 
+        "personality": "community", 
+        "logdir": null, 
+        "logtofile": false, 
+        "loglevel": "info", 
+        "colour": "auto", 
+        "logformat": "standard", 
+        "command": "start", 
+        "reactor": null
+    }
+}
