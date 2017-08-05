@@ -55,6 +55,11 @@
                     }
                 }
             ]
+        },
+        {
+        "type": "guest",
+        "executable": "node",
+        "arguments" : ["../web/js/backend.js"]
         }
     ]
 }
