@@ -8,4 +8,6 @@
 sendNewQuestion = function (button) {
     var questionString = document.getElementById("newQuestionArea").value;
     console.log(questionString);
+    connection.session.publish('on_new_question', [questionString]);
+    return false;
 }  

@@ -39,9 +39,28 @@ var questionSchema = new Schema({
     difficulty: String,
     keyWords : [{String}],
 });
+
+var questionModel = mongoose.model('question', questionSchema);
+
 /* When a new question is recieved, insert it to the DB */
 function on_new_question(question) {
     console.log("Question recieved");
+    var questionText = question[0]; //For now we only send a string;
+    console.log(questionText);
+
+    questionModel.update(
+                    {},
+                    {content : questionText},
+                    {upsert: true, new: true},
+                    function (err, res) {
+                        if (!err) {
+                            console.log("Added question!");
+                            console.log(res);
+                        } else {
+                            console.log(err.message);
+                        }
+                    }  
+                );
 }
 
 connection.open();

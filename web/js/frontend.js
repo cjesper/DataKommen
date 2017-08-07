@@ -21,8 +21,10 @@ connection.onopen = function (session, details) {
         );  
 }       
 
+/* Insert question to DB when we recieve an answer */
 on_answer_data = function (answerData) {
     console.log("Recieved an answer!");
+    console.log(answerData);
 } 
 
 /* Open the connection */  

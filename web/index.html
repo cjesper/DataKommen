@@ -35,10 +35,10 @@
                             <div id="newQuestionPanel" class="panel panel-primary">
                             <div class="panel-heading">Input a new question</div> 
                                     <div id="answerArea" class="form-group">
-                                    <textarea class="form-control" id="newQuestionArea" rows="3"></textarea>
+                                    <textarea onkeydown="if (event.keyCode == 13) document.getElementById('sendQuestionButton').click()" class="form-control" id="newQuestionArea" rows="1"></textarea>
                                 </div>
                                     <div class="button-group">
-                                        <button type="button" onClick="return sendNewQuestion(this)" class="btn btn-danger">Submit your question!</button>
+                                        <button id="sendQuestionButton" type="button" onClick="return sendNewQuestion(this)" class="btn btn-danger">Submit your question!</button>
                                     </div>
                             </div>
                         </div>
