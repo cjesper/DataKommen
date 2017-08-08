@@ -1,11 +1,43 @@
 #topNavbar {
-    background-color: #41ebf4;
+    background-color: green;
+    font-family: verdana;
+}
+
+#navBarContent {
+    font-color: white;
 }
 #welcomeText {
     font-size: 30px;
     font-family: verdana
 }
+.nav a {
+    color: white !important;
+}
 
-#answerArea {
-    padding: 5px;
+.nav li {
+    color: white !important;
+}
+
+#examHelperBrand {
+    color: white;
+}
+.panel-body {
+    margin: 5px; 
+    padding: 3px;
+    border: 1px solid black;
+}
+
+.panel > .panel-heading {
+    background-color: green;
+    background-image: none;
+}
+.btn {
+    margin: 3px;
+}
+
+.form-group {
+    margin: 3px;
+}
+#requestNewQuestionButton {
+    margin: 2px;
 }

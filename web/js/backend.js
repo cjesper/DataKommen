@@ -23,6 +23,15 @@ connection.onopen = function (session) {
                 console.log("Failed to subscribe to on_new_question");
             }
         );
+
+    session.subscribe("on_question_request", on_question_request).then(
+            function (sub) {
+                console.log("Subscribed to on_question_request");
+            },
+            function (err) {
+                console.log("Failed to subscribe to on_question_request"); 
+            }    
+    )
 } 
 
 /* Handle disconnects */
@@ -38,6 +47,12 @@ var questionSchema = new Schema({
     content: String,
     difficulty: String,
     keyWords : [{String}],
+    hints: [{String}],
+    solutions: [{String}],
+    key: {
+        keyContent : String,
+        keyKeyWords : [String]
+    }
 });
 
 var questionModel = mongoose.model('question', questionSchema);
@@ -62,5 +77,20 @@ function on_new_question(question) {
                     }  
                 );
 }
+
+/* Send a (random) question from the database to the frontend when requested */
+function on_question_request (args) {
+    console.log("Request for question recieved");
+    questionModel.findOne({},
+                    function (err, res) {
+                        if (!err) {
+                            var questionData = JSON.parse(JSON.stringify(res, null, 4));
+                            console.log(questionData.content);
+                            connection.session.publish('on_new_question_from_backend', [questionData]);
+                            console.log("Sent question to frontend");
+                        }
+                    }  
+            );
+}  
 
 connection.open();

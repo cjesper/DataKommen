@@ -11,3 +11,9 @@ sendNewQuestion = function (button) {
     connection.session.publish('on_new_question', [questionString]);
     return false;
 }  
+
+/* Request a new question from the backend */
+requestNewQuestion = function (button) {
+    connection.session.publish('on_question_request', []);
+    console.log("Requested a question");
+}  

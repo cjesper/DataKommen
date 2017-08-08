@@ -14,9 +14,9 @@
         <nav id="topNavbar" class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a class="navbar-brand" href="#">ExamHelper</a>
+              <a id="examHelperBrand" class="navbar-brand" href="#">ExamHelper</a>
             </div>
-            <ul class="nav navbar-nav">
+            <ul id="navBarContent"class="nav navbar-nav">
               <li><a href="#">Computer Communication</a></li>
               <li><a href="#">TSS</a></li>
               <li><a href="#">Other courses</a></li>
@@ -34,8 +34,9 @@
                     <div class="col-lg-4">
                             <div id="newQuestionPanel" class="panel panel-primary">
                             <div class="panel-heading">Input a new question</div> 
-                                    <div id="answerArea" class="form-group">
-                                    <textarea onkeydown="if (event.keyCode == 13) document.getElementById('sendQuestionButton').click()" class="form-control" id="newQuestionArea" rows="1"></textarea>
+                                    <div class="form-group">
+                                    <label for="newQuestionArea">Enter your question</label>
+                                    <textarea class="form-control" id="newQuestionArea" rows="3"></textarea>
                                 </div>
                                     <div class="button-group">
                                         <button id="sendQuestionButton" type="button" onClick="return sendNewQuestion(this)" class="btn btn-danger">Submit your question!</button>
@@ -47,27 +48,52 @@
                     <!-- EXISTING QUESTION --> 
                     <div id="questionDiv" class="col-lg-4">
                         <div id="questionPanel" class="panel panel-primary">        
-                            <div class="panel-heading">Question No. 1</div> 
-                            <div class="panel-body">
-                                <p id="theQuestion">Explain how slow-start works.</p>
+                            <div class="panel-heading">Questions!</div> 
+                            <div id="questionBody" class="panel-body">
+                                <p id="theQuestion"></p>
                             </div> 
+                            <div class="button-group">
+                                <button id="requestNewQuestionButton" type="button" onClick="return requestNewQuestion(this)" class="btn btn-danger">Give me a new question!</button>
+                            </div>
                         </div>
+                        <!-- User-provided answer -->
                          <div id="answerPanel" class="panel panel-primary">        
                             <div class="panel-heading">Your answer:</div> 
                                     <div id="answerArea" class="form-group">
                                     <textarea class="form-control" id="answerTextArea" rows="3"></textarea>
                                 </div>
                             <div class="button-group">
-                                <button type="button" onClick="submitAnswer" class="btn btn-danger">Submit your answer!</button>
+                                <button type="button" onClick="return submitAnswer(this)" class="btn btn-danger">Submit your answer!</button>
                             </div>
                         </div>
 
-                    </div>
-                    <!-- WHATEVER THIS IS GOING TO BE -->
-                    <div class="col-lg-4"></div>
+                        <!-- Key -->
+                        <div id="keyPanel" class="panel panel-primary">        
+                            <div class="panel-heading">Key</div> 
+                            <div class="button-group">
+                                <button type="button" onClick="return showKey(this)" class="btn btn-danger">Show key?</button>
+                            </div>
+                            <div id="keyBody" class="panel panel-body">
+                                    <p id="theKey"></p>
+                            </div>
+                        </div>
 
+
+
+                    </div>
+                    <!-- Hints/Solutions -->
+                    <div class="col-lg-4">
+                        <div id="hintPanel" class="panel panel-primary">
+                            <div class="panel-heading">Hints</div>
+                            <div class="button-group">
+                                <button type="button" onClick="return showHint(this)" class="btn btn-primary">Show me a hint</button>
+                                <button type="button" onClick="return showUserSolution(this)" class="btn btn-danger">Show me a user solution</button>
+                            </div>
+                            <div class="panel panel-body">
+                                    <p id="hintOrSolution"></p>
+                            </div>
+                        </div>
                 </div>
-            </div>
         </div>
    </body>
 </html>

@@ -11,7 +11,7 @@ var connection = new autobahn.Connection({
 connection.onopen = function (session, details) {
     console.log("Connected in frontend!"); 
     
-    session.subscribe("on_answer_data", on_answer_data).then(
+    session.subscribe("on_answer_from_backend", on_answer_from_backend).then(
             function (sub) {
                 console.log("Subscribed to on_answer_data"); 
             },
@@ -19,10 +19,26 @@ connection.onopen = function (session, details) {
                 console.log("Failed to subscribe to on_answer_data"); 
             }
         );  
+
+    session.subscribe("on_new_question_from_backend", on_new_question_from_backend).then(
+            function (sub) {
+                console.log("Subscribed to on_new_question_from_backend"); 
+            },
+            function (err) {
+                console.log("Failed to subscribe to on_new_question_from_backend"); 
+            }
+    );  
 }       
 
-/* Insert question to DB when we recieve an answer */
-on_answer_data = function (answerData) {
+/* Display new question when we get it from backend */
+on_new_question_from_backend = function (questionData) {
+    console.log("Recieved a new question for display");
+    var newQuestion = questionData[0].content;
+    theQuestion.innerHTML = newQuestion;
+} 
+
+/* Display answer when we get it from backend */
+on_answer_from_backend = function (answerData) {
     console.log("Recieved an answer!");
     console.log(answerData);
 } 
