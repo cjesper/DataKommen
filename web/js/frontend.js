@@ -1,3 +1,5 @@
+// @flow
+
 /*
     ExamChecker frontend
     Jesper Carlsson, 2017
@@ -42,6 +44,8 @@ on_answer_from_backend = function (answerData) {
     console.log("Recieved an answer!");
     console.log(answerData);
 } 
+
+
 
 /* Open the connection */  
 connection.open();
