@@ -2,6 +2,7 @@
 
 /*
     ExamChecker frontend
+    Handles hash_change and subscriptions
     Jesper Carlsson, 2017
 */ 
 var wsuri = "ws://localhost:8080/ws";
@@ -30,22 +31,22 @@ connection.onopen = function (session, details) {
                 console.log("Failed to subscribe to on_new_question_from_backend"); 
             }
     );  
-}       
+}  
+
+/* Hash - used to control everything*/
+var hash = location.href.split('#')[1];
 
 /* Display new question when we get it from backend */
-on_new_question_from_backend = function (questionData) {
+var on_new_question_from_backend = function (questionData) {
     console.log("Recieved a new question for display");
     var newQuestion = questionData[0].content;
-    theQuestion.innerHTML = newQuestion;
+    document.getElementById('theQuestion').innerHTML = newQuestion;
 } 
 
 /* Display answer when we get it from backend */
-on_answer_from_backend = function (answerData) {
+var on_answer_from_backend = function (answerData) {
     console.log("Recieved an answer!");
     console.log(answerData);
 } 
 
 
-
-/* Open the connection */  
-connection.open();

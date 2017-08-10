@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</div>
 
 <meta http-equiv="content-type" content="text/html" charset="ISO-8859-1" />
 <!-- MAIN PAGE -->
@@ -14,19 +14,54 @@
         <nav id="topNavbar" class="navbar navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
-              <a id="examHelperBrand" class="navbar-brand" href="#">ExamHelper</a>
+              <a id="examHelperBrand" class="navbar-brand" href="#">Exam Checker</a>
             </div>
             <ul id="navBarContent"class="nav navbar-nav">
-              <li><a href="#">Computer Communication</a></li>
-              <li><a href="#">TSS</a></li>
-              <li><a href="#">Other courses</a></li>
+              <li><a href="#">Browse Courses..</a></li>
+              <li><a href="#">Chat</a></li>
+              <li><a href="#"></a></li>
             </ul>
           </div>
         </nav>
     
     </head>
         <body>
-            <div class="row">
+        <!-- Welcome Row -->
+                <div class="row">
+                <div class="col-lg-4"></div> 
+                <div class="col-lg-4">
+                    <div class="slide-left">
+                                <h1 id="welcomeMessage">Welcome to ExamChecker!<h1>
+                        </div>
+                </div> 
+                <div class="col-lg-4"></div> 
+
+            </div>
+            <div class="row" id="infoRow"> 
+                <div class="col-lg-4">
+                        <div id="infoRepoDiv" class="img-rounded">
+                                <h2 class="infoAboutTool" id="infoRepository">ExamChecker is an online repository of exam questions,
+                                    containing both keys and student solutions.</h2>
+                            </div>
+                </div>
+                <div class="col-lg-4">
+                        <div id="infoBrowseDiv" class="img-rounded">
+                                <h2 class="infoAboutTool" id="infoBrowse">You can browse for courses or subjects in the drop-down menu.
+                                    </h2>
+                            </div>
+                </div>
+                <div class="col-lg-4">
+                         <div id="infoChatDiv" class="img-rounded">
+                                <h2 class="infoAboutTool" id="infoChat">There are lots of tools available if you get stuck - you can ask for hints, complete solutions, references to where you can read about the question, and even chat to other students!.
+                                    </h2>
+                            </div>
+                    </div>
+                <div>
+                </div>
+            </div> 
+            
+            <!--Specific Row -->
+            <div class="row" id="contentRow">
                 <div class="container-fluid">
 
                     <!-- NEW QUESTION -->
@@ -34,9 +69,11 @@
                             <div id="newQuestionPanel" class="panel panel-primary">
                             <div class="panel-heading">Input a new question</div> 
                                     <div class="form-group">
-                                    <label for="newQuestionArea">Enter your question</label>
-                                    <textarea class="form-control" id="newQuestionArea" rows="3"></textarea>
-                                </div>
+                                            <label for"questionSubject">Enter the subject</label>
+                                            <textarea class="form-control" id="newQuestionArea" rows="3"></textarea>
+                                        <label for="newQuestionArea">Enter your question</label>
+                                        <textarea class="form-control" id="newQuestionArea" rows="3"></textarea>
+                                    </div>
                                     <div class="button-group">
                                         <button id="sendQuestionButton" type="button" onClick="return sendNewQuestion(this)" class="btn btn-danger">Submit your question!</button>
                                     </div>
@@ -96,3 +133,4 @@
         </div>
    </body>
 </html>
+

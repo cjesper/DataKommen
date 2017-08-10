@@ -10,6 +10,7 @@ var Schema = mongoose.Schema;
 /* Set up connection to autobahn and mongoDB */ 
 var connection = new autobahn.Connection({url: 'ws://127.0.0.1:8080/ws', realm: 'realm1'});
 mongoose.connect('mongodb://localhost/ExamChecker');
+// @flow
 
 /* Autobahn on-connect */
 connection.onopen = function (session) {

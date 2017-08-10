@@ -1,14 +1,19 @@
 #topNavbar {
     background-color: green;
     font-family: verdana;
+    font-size: 20px;
 }
 
 #navBarContent {
     font-color: white;
 }
-#welcomeText {
-    font-size: 30px;
+#welcomeMessage{
+    font-size: 50px;
     font-family: verdana
+}
+
+#contentRow {
+    display:none;
 }
 .nav a {
     color: white !important;
@@ -35,9 +40,55 @@
     margin: 3px;
 }
 
+#infoRepository {
+}
+
+.infoAboutTool {
+    font-family: verdana;
+    margin: 2px;
+    padding:2px;
+}
+
 .form-group {
     margin: 3px;
 }
 #requestNewQuestionButton {
     margin: 2px;
 }
+
+#infoBrowseDiv {
+    border: 2px solid pink;
+}
+
+#infoRepoDiv {
+    margin-left: 2px;
+    border: 2px solid green;
+}
+
+#infoChatDiv {
+    margin-right: 2px;
+    border: 2px solid black;
+}
+
+.img-rounded {
+}
+div.slide-left {
+  width:100%;
+  overflow:hidden;
+}
+div.slide-left h1 {
+  animation: slide-left 5s;
+}
+
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+

@@ -1,11 +1,13 @@
-/* 
+// @flow
+
+/*
  * Interaction (buttons and other things) 
  * for ExamChecker
  * Jesper Carlsson, 2017
 */ 
 
 /* Send new question to backend */ 
-sendNewQuestion = function (button) {
+var sendNewQuestion = function (button) {
     var questionString = document.getElementById("newQuestionArea").value;
     console.log(questionString);
     connection.session.publish('on_new_question', [questionString]);
@@ -13,7 +15,7 @@ sendNewQuestion = function (button) {
 }  
 
 /* Request a new question from the backend */
-requestNewQuestion = function (button) {
+var requestNewQuestion = function (button) {
     connection.session.publish('on_question_request', []);
     console.log("Requested a question");
 }  
