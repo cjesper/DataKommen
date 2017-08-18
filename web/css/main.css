@@ -26,6 +26,18 @@
 #examHelperBrand {
     color: white;
 }
+
+#examHelperBrand:hover{
+    background-color: #7aa200;
+}
+
+#navBarContentOne:hover{
+    background-color: #7aa200;
+}
+
+#navBarContentTwo:hover{
+    background-color: #7aa200;
+}
 .panel-body {
     margin: 5px; 
     padding: 3px;

@@ -1,5 +1,4 @@
 // @flow
-
 /*
     ExamChecker frontend
     Handles hash_change and subscriptions
@@ -10,6 +9,37 @@ var connection = new autobahn.Connection({
     url : wsuri,
     realm: "realm1"
 });
+
+window.onload = location_hash_changed();
+
+window.addEventListener('hashchange', function () {
+    location_hash_changed();
+}, false );
+
+function location_hash_changed () {
+    var hash = location.hash;
+
+    var newHash = hash.split('#')[1];
+    if (newHash) {
+        console.log(newHash);
+    } else {
+        console.log("No hash"); 
+    }
+    // If we have a hash, go to that course 
+    if (newHash) {
+            $(function () { 
+                document.getElementById('welcomeRow').style.display = "none";
+                document.getElementById('infoRow').style.display = "none";
+                document.getElementById('contentRow').style.display = "block";
+            });
+    } else { //Else display default page
+            $(function () { 
+                document.getElementById('welcomeRow').style.display = "block";
+                document.getElementById('infoRow').style.display = "block";
+                document.getElementById('contentRow').style.display = "none";
+            });
+    }
+} 
 
 connection.onopen = function (session, details) {
     console.log("Connected in frontend!"); 
@@ -32,9 +62,6 @@ connection.onopen = function (session, details) {
             }
     );  
 }  
-
-/* Hash - used to control everything*/
-var hash = location.href.split('#')[1];
 
 /* Display new question when we get it from backend */
 var on_new_question_from_backend = function (questionData) {
